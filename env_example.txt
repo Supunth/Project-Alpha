@@ -1,0 +1,26 @@
+# Copy this file to .env and add your API keys
+
+# Recall Network API Configuration
+# Get your API keys from: https://recall.network
+RECALL_API_KEY=your_production_api_key_here
+RECALL_API_KEY_SANDBOX=your_sandbox_api_key_here
+RECALL_BASE_URL=https://api.recall.network
+
+# Environment Selection
+USE_PRODUCTION=true
+
+# Trading Configuration
+DEFAULT_TRADING_PAIRS=BTC/USD,ETH/USD,ADA/USD
+INITIAL_PORTFOLIO_VALUE=10000
+MAX_POSITION_SIZE=0.1
+RISK_TOLERANCE=0.02
+
+# Model Configuration
+MODEL_UPDATE_FREQUENCY=3600
+ENABLE_LIVE_TRADING=true
+LOG_LEVEL=INFO
+
+# Competition Settings
+COMPETITION_ID=default
+AGENT_NAME=CryptoAlpha_v1.0
+MAX_TRADES_PER_HOUR=10

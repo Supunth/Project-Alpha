@@ -32,8 +32,8 @@ cryptoalpha/
 
 2. **Set up environment**:
    ```bash
-   cp .env.example .env
-   # Edit .env with your API keys
+   cp env_example.txt .env
+   # Edit .env with your Recall Network API keys
    ```
 
 3. **Run the agent**:

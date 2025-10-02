@@ -11,8 +11,8 @@ class Config:
     """Main configuration class"""
     
     # Recall Network API
-    RECALL_API_KEY = os.getenv('RECALL_API_KEY', 'e98ce8c3103734d5_a7177b2cc584618f')
-    RECALL_API_KEY_SANDBOX = '2e0fce1504934a8f_15b2d1eb5112799d'
+    RECALL_API_KEY = os.getenv('RECALL_API_KEY', '')
+    RECALL_API_KEY_SANDBOX = os.getenv('RECALL_API_KEY_SANDBOX', '')
     RECALL_BASE_URL = os.getenv('RECALL_BASE_URL', 'https://api.recall.network')
     
     # Environment Selection
