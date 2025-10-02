@@ -1,0 +1,24 @@
+# Core dependencies
+numpy>=1.21.0
+pandas>=1.5.0
+requests>=2.28.0
+python-dotenv>=0.19.0
+
+# Machine Learning
+scikit-learn>=1.1.0
+
+# Financial data and analysis
+yfinance>=0.2.0
+ta>=0.10.0
+ccxt>=3.0.0
+
+# API and web
+aiohttp>=3.8.0
+
+# Utilities
+python-dateutil>=2.8.0
+pytz>=2022.0
+matplotlib>=3.5.0
+
+# Development
+pytest>=7.0.0
