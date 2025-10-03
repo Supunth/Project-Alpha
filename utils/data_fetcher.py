@@ -19,7 +19,7 @@ class MarketDataFetcher:
         self.logger = logging.getLogger(__name__)
         self.exchanges = {
             'binance': ccxt.binance(),
-            'coinbase': ccxt.coinbasepro(),
+            'coinbase': ccxt.coinbase(),
         }
         
         # Cache for recent data

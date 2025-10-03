@@ -25,9 +25,9 @@ class LiveTradingRunner:
         # Override API key based on environment
         if use_sandbox:
             self.config.RECALL_API_KEY = self.config.RECALL_API_KEY_SANDBOX
-            print("🔧 Using SANDBOX API key for testing")
+            print("Using SANDBOX API key for testing")
         else:
-            print("🚀 Using PRODUCTION API key for live trading")
+            print("Using PRODUCTION API key for live trading")
         
         self.agent = CryptoAlphaAgent(self.config.__dict__)
         self.data_fetcher = MarketDataFetcher()
@@ -56,7 +56,10 @@ class LiveTradingRunner:
             
             # Get initial portfolio value
             portfolio_value = await self.recall_client.get_portfolio_value()
-            self.logger.info(f"💰 Initial Portfolio Value: ${portfolio_value:,.2f}")
+            if portfolio_value:
+                self.logger.info(f"Initial Portfolio Value: ${portfolio_value:,.2f}")
+            else:
+                self.logger.info("Portfolio value unavailable - using default")
             
             # Main trading loop
             iteration = 0
@@ -93,7 +96,10 @@ class LiveTradingRunner:
                                 
                                 # Update portfolio value
                                 new_portfolio_value = await self.recall_client.get_portfolio_value()
-                                self.logger.info(f"💰 Updated Portfolio Value: ${new_portfolio_value:,.2f}")
+                                if new_portfolio_value:
+                                    self.logger.info(f"Updated Portfolio Value: ${new_portfolio_value:,.2f}")
+                                else:
+                                    self.logger.info("Portfolio value unavailable")
                             else:
                                 self.logger.warning("❌ Trade execution failed")
                         else:
@@ -138,12 +144,12 @@ def main():
     use_sandbox = args.sandbox or (not args.production and not args.sandbox)
     
     if use_sandbox:
-        print("🧪 SANDBOX MODE - Safe for testing")
+        print("SANDBOX MODE - Safe for testing")
     else:
-        print("⚠️  PRODUCTION MODE - Real money trading!")
+        print("PRODUCTION MODE - Real money trading!")
         confirm = input("Are you sure you want to trade with real money? (yes/no): ")
         if confirm.lower() != 'yes':
-            print("❌ Cancelled. Use --sandbox for testing.")
+            print("Cancelled. Use --sandbox for testing.")
             return
     
     # Run the trading bot
